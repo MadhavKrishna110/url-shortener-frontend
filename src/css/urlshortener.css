@@ -1,0 +1,123 @@
+:root {
+    --primary-bg-color: #f9f9f9;
+    --border-color: #e5e7eb;
+    --input-text-color: #94a3b8;
+    --primary-text-color: #030303;
+    --button-bg-color: #030303;
+    --button-text-color: #fff;
+}
+
+.url-shortener {
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: var(--primary-bg-color);
+    border-radius: 12px;
+    box-shadow: 1px 1px 12px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.url-shortener h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-container input,
+.input-container select,
+.input-container button {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    height: 42px;
+    padding: 0 20px;
+}
+
+.input-container input {
+    font-size: 1rem;
+    color: var(--input-text-color);
+}
+
+.input-container select {
+    font-size: 1rem;
+}
+
+.input-container button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-container button:hover {
+    background-color: #1a1a1a;
+}
+
+.input-container p {
+    font-size: 0.75rem;
+    max-width: 100%;
+}
+
+.select-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 768px) {
+    .url-shortener {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .url-shortener h2 {
+        font-size: 1.25rem;
+    }
+
+    .input-container {
+        padding: 0 15px;
+    }
+
+    .input-container input,
+    .input-container select,
+    .input-container button {
+        font-size: 0.9rem;
+        height: 38px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .url-shortener {
+        width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .url-shortener h2 {
+        font-size: 1.1rem;
+    }
+
+    .input-container input,
+    .input-container select,
+    .input-container button {
+        font-size: 0.85rem;
+        height: 36px;
+    }
+}
