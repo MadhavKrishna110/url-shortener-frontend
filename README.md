@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Frontend for URL Shortener
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple URL Shortener built with React.js for the frontend and a Node.js backend. This application allows users to generate short URLs with configurable expiration durations.
 
-## Available Scripts
+# Features
+1. Input a long URL and generate a shortened URL.
+2. Select the duration for which the shortened URL will remain active:
+    1 Min
+    7 Min
+    30 Min
+3. Display the generated shortened URL after successful creation.
 
-In the project directory, you can run:
+Backend integration using Fetch API.
 
-### `npm start`
+# Technologies Used
+Frontend:
+React.js: Component-based UI development.
+CSS: Styling using an external stylesheet.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Backend:
+Node.js: The backend processes requests and generates shortened URLs.
+Express.js: For handling API requests.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# Getting Started
+Prerequisites
+Node.js (>= 14.x)
+npm or yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Steps to Run the Project
+Clone the Repository
+1. git clone https://github.com/MadhavKrishna110/url-shortener-frontend.git
+2. cd url-shortener-frontend
+3. Install Frontend Dependencies
+npm install
 
-### `npm run build`
+4. Start the Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Set Up Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Navigate to the backend folder, install dependencies, and start the backend server. (Refer to the backend's README if available.)
 
-### `npm run eject`
+6. Access the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Open your browser and navigate to http://localhost:3000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Endpoints
+The application integrates with the following backend endpoint:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+POST /short-url
+Description: Shortens the provided URL with a specified duration.
+Request Body:
+{
+  "url": "https://example.com",
+  "duration": 7
+}
+Response:
+{
+  "url": "http://localhost:8080/url/abc123",
+   "message": "Success: URL has been shortened successfully."
+}
 
-## Learn More
+To-Do
+Add URL validation for user inputs.
+Implement copy-to-clipboard functionality for the shortened URL.
+Enhance UI/UX with additional styles and animations.
+Add tests for frontend components.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributing
+Feel free to contribute to this project. To get started:
 
-### Code Splitting
+Fork the repository.
+Create a feature branch:
+bash
+Copy code
+git checkout -b feature-name
+Commit your changes:
+bash
+Copy code
+git commit -m "Add feature-name"
+Push to the branch:
+bash
+Copy code
+git push origin feature-name
+Open a Pull Request.
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Acknowledgments
+Inspired by popular URL-shortening services like Bitly and TinyURL.
+Special thanks to contributors and open-source libraries.
