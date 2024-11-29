@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "../css/urlshortener.css";
-import axios from "axios";
 
 export default function UrlShortener() {
   const [url, setUrl] = useState("");
@@ -10,26 +10,20 @@ export default function UrlShortener() {
   useEffect(() => {}, [shortUrl]);
 
   const handleGenerateShortUrl = async () => {
-    fetch("http://localhost:8080/shorten", {
-      method: "POST",
-      body: JSON.stringify({ url: url }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((response) => {
-        setShortUrl(response.url);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
+    try {
+        const response = await axios.post('http://localhost:8080/short-url', {
+            url: url,
+            duration: duration
+          });
+          setShortUrl(response.data.url);
+    } catch (error) {
+        console.error("Axios Error:", error.response ? error.response.data : error.message);
+    }
   };
+
   return (
     <div className="url-shortener">
-      <h2> Shorten Your URL</h2>
+      <h2>Shorten Your URL</h2>
       <div className="input-container">
         <input
           type="text"
@@ -38,16 +32,16 @@ export default function UrlShortener() {
           onChange={(e) => setUrl(e.target.value)}
         />
         <div className="select-box">
-          <p> Link Duration: </p>
-          <select onChange={(e) => setDuration(e.target.value)}>
-            <option value="1 Day">1 Day</option>
-            <option value="7 Days">7 Days</option>
-            <option value="30 Days">30 Days</option>
+          <p>Link Duration:</p>
+          <select onChange={(e) => setDuration(Number(e.target.value))}>
+            <option value="1">1 Min</option>
+            <option value="10">10 Min</option>
+            <option value="30">30 Min</option>
           </select>
         </div>
 
         <button onClick={handleGenerateShortUrl}>Generate Short URL</button>
-        {shortUrl && <div> Here is your short Url : {shortUrl} </div>}
+        {shortUrl && <div>Here is your short URL: {shortUrl}</div>}
       </div>
     </div>
   );
